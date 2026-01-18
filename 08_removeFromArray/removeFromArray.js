@@ -1,18 +1,20 @@
-const removeFromArray = function(array, remove) {
+const removeFromArray = function(...args) {
+    let array = args[0];
     let newArray = [];
 
-    array.map(element => {
-        if (element === remove) {
-            return;
-        }
-        else {
-            newArray.push(element);
+    array.forEach(element => {
+        for (let arg of args.slice(1)) {
+            if (element === arg) {
+                break;
+            }
+            else if (!(element === arg) && args.indexOf(arg) === (args.length - 1)){
+                newArray.push(element);
+            }
         }
     });
 
     return newArray;
-};
+}
 
-removeFromArray([1, 2, 3, 4], 3);
 // Do not edit below this line
 module.exports = removeFromArray;
