@@ -2,6 +2,11 @@ const contains = function(obj, val) {
 	if (obj === val) {
 		return true;
 	}
+    if (Number.isNaN(val)) {
+        if (Number.isNaN(obj)) {
+            return true;
+        }
+    }
 	if (Object.prototype.toString.call(obj) === '[object Object]') {
 		for (const v of Object.values(obj)) {
 			if (contains (v, val)) {
