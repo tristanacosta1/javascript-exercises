@@ -13,6 +13,8 @@ const contains = function(obj, val) {
 		return false;
 	}
 }
+
+// NaN is the only value in JavaScript that is completely unequal to itself.
   
 // Do not edit below this line
 module.exports = contains;
